@@ -23,7 +23,7 @@ export class TodoController {
 
   @Put(':id')
   async update(
-    @Param() id: string,
+    @Param('id') id: string,
     @Body(new ValidationPipe()) updateTodoDto: UpdateTodoDto,
   ) {
     return this.todoService.update(id, updateTodoDto);
@@ -35,12 +35,12 @@ export class TodoController {
   }
 
   @Get(':id')
-  async findOne(@Param() id: string) {
+  async findOne(@Param('id') id: string) {
     return this.todoService.findOne(id);
   }
 
   @Delete(':id')
-  async delete(@Param() id: string) {
+  async delete(@Param('id') id: string) {
     return this.todoService.delete(id);
   }
 }
